@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: businessapp.business.dbPropertiestTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in businessapp.business.dbPropertiestTest
+getEncryptedPassword(businessapp.business.dbPropertiestTest)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.ComparisonFailure: expected:<[thou]> but was:<[root]>
+	at businessapp.business.dbPropertiestTest.getEncryptedPassword(dbPropertiestTest.java:24)
+

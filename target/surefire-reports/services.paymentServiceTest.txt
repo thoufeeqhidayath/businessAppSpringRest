@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: services.paymentServiceTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in services.paymentServiceTest
+addPayment(services.paymentServiceTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at services.paymentServiceTest.addPayment(paymentServiceTest.java:31)
+

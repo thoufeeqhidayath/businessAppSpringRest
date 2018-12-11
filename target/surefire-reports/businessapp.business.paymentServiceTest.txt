@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: businessapp.business.paymentServiceTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in businessapp.business.paymentServiceTest
+deletePayment(businessapp.business.paymentServiceTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at businessapp.business.paymentServiceTest.deletePayment(paymentServiceTest.java:51)
+
+addPayment(businessapp.business.paymentServiceTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at businessapp.business.paymentServiceTest.addPayment(paymentServiceTest.java:25)
+
+updatePayment(businessapp.business.paymentServiceTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at businessapp.business.paymentServiceTest.updatePayment(paymentServiceTest.java:75)
+

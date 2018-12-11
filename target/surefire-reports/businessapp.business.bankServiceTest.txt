@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: businessapp.business.bankServiceTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in businessapp.business.bankServiceTest
+addBank(businessapp.business.bankServiceTest)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException
+	at businessapp.business.bankServiceTest.addBank(bankServiceTest.java:34)
+
+updateBank(businessapp.business.bankServiceTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at businessapp.business.bankServiceTest.updateBank(bankServiceTest.java:63)
+
+viewBank(businessapp.business.bankServiceTest)  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NullPointerException
+	at businessapp.business.bankServiceTest.viewBank(bankServiceTest.java:84)
+
+deleteBank(businessapp.business.bankServiceTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at businessapp.business.bankServiceTest.deleteBank(bankServiceTest.java:43)
+

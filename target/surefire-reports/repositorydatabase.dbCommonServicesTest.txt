@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: repositorydatabase.dbCommonServicesTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in repositorydatabase.dbCommonServicesTest
+getMax(repositorydatabase.dbCommonServicesTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at repositorydatabase.dbCommonServicesTest.getMax(dbCommonServicesTest.java:35)
+
+checkvalueExists(repositorydatabase.dbCommonServicesTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at repositorydatabase.dbCommonServicesTest.checkvalueExists(dbCommonServicesTest.java:17)
+
+checkvalueStringExists(repositorydatabase.dbCommonServicesTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at repositorydatabase.dbCommonServicesTest.checkvalueStringExists(dbCommonServicesTest.java:26)
+
