@@ -5,14 +5,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import services.bankService;
-import businessapp.business.viewModel;
-
+import models.bankModel;
 
 
 @RestController
@@ -42,7 +40,7 @@ public class bankController {
 	}
 
 	@RequestMapping(value= "/viewBank" ,method = RequestMethod.GET)
-	public ArrayList<viewModel> viewBank() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<bankModel> viewBank() throws ClassNotFoundException, SQLException, IOException
 	{
 		return bankService.viewBank();
 	}

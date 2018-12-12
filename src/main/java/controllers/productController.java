@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import businessapp.business.viewModel;
 import services.productService;
-
+import models.productModel;
 
 @RestController
 public class productController {
@@ -42,7 +42,7 @@ public class productController {
 	}
 	
 	@RequestMapping(value= "/viewProducts" ,method = RequestMethod.GET)
-	public ArrayList<viewModel> viewProducts() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<productModel> viewProducts() throws ClassNotFoundException, SQLException, IOException
 	{ 	
 		return productService.viewProducts();
 	}

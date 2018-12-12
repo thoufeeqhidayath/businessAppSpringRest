@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 
 import businessapp.business.viewModel;
-
+import models.supplierModel;
 
 @Service
 public class supplierDbRepository extends dbConnections {
@@ -48,6 +48,7 @@ public class supplierDbRepository extends dbConnections {
 	    
     }
 	
+	
 	public void updateSupplier(int supplierCode,String supplierName) throws SQLException
 	{
 		 String query = "call update_supplier(?,?)";
@@ -65,10 +66,10 @@ public class supplierDbRepository extends dbConnections {
 		 
 	}
 	
-	public ArrayList<viewModel> readFromSupplier() throws SQLException
+	public ArrayList<supplierModel> readFromSupplier() throws SQLException
 	{ 
-		viewModel viewModel=new viewModel();
-	    ArrayList<viewModel> supplierRecord=new ArrayList<viewModel>();
+		supplierModel supplierModel=new supplierModel();
+	    ArrayList<supplierModel> supplierRecord=new ArrayList<supplierModel>();
 	 
         String query ="call read_supplier()";
         PreparedStatement preparedStatement=createPreparedStatement(query);
@@ -82,8 +83,8 @@ public class supplierDbRepository extends dbConnections {
           	  int supplierCode=rs.getInt("supplier_code");
           	  String supplierName=rs.getString("name");
           	  double balance=rs.getDouble("balance");
-          	  viewModel=new viewModel(supplierCode,supplierName,balance);
-          	  supplierRecord.add(viewModel);
+          	  supplierModel=new supplierModel(supplierCode,supplierName,balance);
+          	  supplierRecord.add(supplierModel);
               }
         }
         finally

@@ -11,7 +11,7 @@ import appDBrepository.stockDbRepository;
 import businessapp.business.viewModel;
 import appDBrepository.dbCommonServices;
 
-
+import models.stockModel;
 @Service
 public class stockService {
 	@Autowired
@@ -77,7 +77,7 @@ public class stockService {
     }
 	
 	
-	public  ArrayList<viewModel> viewStock() throws ClassNotFoundException, SQLException, IOException
+	public  ArrayList<stockModel> viewStock() throws ClassNotFoundException, SQLException, IOException
 	{
 		return stockDbRepository.readFromStock();
 	}

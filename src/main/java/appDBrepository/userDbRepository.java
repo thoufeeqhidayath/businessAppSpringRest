@@ -8,13 +8,14 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 
 import businessapp.business.viewModel;
-
+import models.userModel;
 @Service
 public class userDbRepository extends dbConnections {
 	
 	
 	public void insertIntoUser(String userName,String password) throws SQLException
 	{
+
 		String query = "Call insert_user(?,?);";
 		PreparedStatement preparedStatement=createPreparedStatement(query);
 		try
@@ -28,10 +29,19 @@ public class userDbRepository extends dbConnections {
 			preparedStatement.close();
 		}
 		
+		
+		
+		
 	}
 	
+	
+	
+	
+	
 	public void deleteFromUser(int userCode) throws SQLException
-	{   
+	{  
+		
+		
         String query = "call soft_delete_user(?)";
       	PreparedStatement preparedStatement=createPreparedStatement(query);
       	try
@@ -45,6 +55,9 @@ public class userDbRepository extends dbConnections {
 		}
       	
     }
+	
+	
+	
 	
 	public void updateUser(int userCode,String userName,String userPassword) throws SQLException
 	{
@@ -67,10 +80,12 @@ public class userDbRepository extends dbConnections {
 		
 	}
 	
-	public ArrayList<viewModel> readFromUser() throws SQLException
+	
+	
+	public ArrayList<userModel> readFromUser() throws SQLException
 	{ 
-		viewModel viewModel=new viewModel();
-	    ArrayList<viewModel> userRecord=new ArrayList<viewModel>();
+		userModel userModel=new userModel();
+	    ArrayList<userModel> userRecord=new ArrayList<userModel>();
 	  
         String query ="call read_user()";
         PreparedStatement preparedStatement=createPreparedStatement(query);
@@ -84,8 +99,8 @@ public class userDbRepository extends dbConnections {
         	  int supplierCode=rs.getInt("user_id");
         	  String supplierName=rs.getString("user_name");
         	  String password=rs.getString("password");        
-        	  viewModel=new viewModel(supplierCode,supplierName,password);
-        	  userRecord.add(viewModel);
+        	  userModel=new userModel(supplierCode,supplierName,password);
+        	  userRecord.add(userModel);
             }
         }
         finally

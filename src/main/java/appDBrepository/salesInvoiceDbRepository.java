@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 
 import businessapp.business.viewModel;
-
+import models.salesInvoiceModel;
 
 @Service
 public class salesInvoiceDbRepository extends dbConnections{
@@ -71,12 +71,12 @@ public class salesInvoiceDbRepository extends dbConnections{
 		 
 	}
 
-	public ArrayList<viewModel> readFromSalesInvoice() throws SQLException
+	public ArrayList<salesInvoiceModel> readFromSalesInvoice() throws SQLException
 	
 	{ 
 
-		viewModel viewModel=new viewModel();
-	    ArrayList<viewModel> salesInvoiceRecord=new ArrayList<viewModel>();
+		salesInvoiceModel salesInvoiceModel=new salesInvoiceModel();
+	    ArrayList<salesInvoiceModel> salesInvoiceRecord=new ArrayList<salesInvoiceModel>();
 	   
         String query ="call read_sales_invoice()";
         PreparedStatement preparedStatement=createPreparedStatement(query);
@@ -93,8 +93,8 @@ public class salesInvoiceDbRepository extends dbConnections{
          	  double balance=rs.getDouble("total");
          	  int bankCode=rs.getInt("bank_code");
          	 
-         	  viewModel=new viewModel(salesNo,salesDate,customerCode,balance,bankCode);
-         	  salesInvoiceRecord.add(viewModel);
+         	  salesInvoiceModel=new salesInvoiceModel(salesNo,salesDate,customerCode,balance,bankCode);
+         	  salesInvoiceRecord.add(salesInvoiceModel);
              }
         }
         

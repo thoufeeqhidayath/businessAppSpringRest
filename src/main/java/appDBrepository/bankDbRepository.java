@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 
 import businessapp.business.viewModel;
-
+import models.bankModel;
 @Service
 public class bankDbRepository extends dbConnections{
 
@@ -73,11 +73,11 @@ public class bankDbRepository extends dbConnections{
     }
 	
 	
-	public ArrayList<viewModel> readFromBank() throws SQLException
+	public ArrayList<bankModel> readFromBank() throws SQLException
 	{ 
 		
-		viewModel viewModel=new viewModel();
-	    ArrayList<viewModel> bankRecord=new ArrayList<viewModel>();
+		bankModel bankModel=new bankModel();
+	    ArrayList<bankModel> bankRecord=new ArrayList<bankModel>();
 	   
         String query ="call read_bank_table()";
         PreparedStatement preparedStatement=createPreparedStatement(query);
@@ -92,8 +92,8 @@ public class bankDbRepository extends dbConnections{
         		int bankCode=rs.getInt("bank_code");
         		String bankName=rs.getString("bank_name");
         		double balance=rs.getDouble("balance");
-        		viewModel=new viewModel(bankCode,bankName,balance);
-        		bankRecord.add(viewModel);
+        		bankModel=new bankModel(bankCode,bankName,balance);
+        		bankRecord.add(bankModel);
        
             }   
         }

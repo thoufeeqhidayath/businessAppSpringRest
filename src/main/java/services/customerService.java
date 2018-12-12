@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import appDBrepository.customerDbRepository;
 import appDBrepository.dbCommonServices;
 import businessapp.business.viewModel;
-
+import models.customerModel;
 @Service
 public class customerService {
 	@Autowired
@@ -62,7 +62,7 @@ public class customerService {
 		return returnValue;	
 	}
 
-	public ArrayList<viewModel> viewCustomers() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<customerModel> viewCustomers() throws ClassNotFoundException, SQLException, IOException
 	{	
 	     return customerDbRepository.readFromCustomer();
 	}

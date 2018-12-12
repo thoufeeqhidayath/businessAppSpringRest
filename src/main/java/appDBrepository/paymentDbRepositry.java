@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 
 import businessapp.business.viewModel;
+import models.paymentModel;
 
 @Service
 public class paymentDbRepositry extends dbConnections {
@@ -73,12 +74,12 @@ public class paymentDbRepositry extends dbConnections {
 	}
 	
 	
-	public ArrayList<viewModel> readFromPayment() throws SQLException
+	public ArrayList<paymentModel> readFromPayment() throws SQLException
 	{ 
 		
 
-		viewModel viewModel=new viewModel();
-	    ArrayList<viewModel> paymentRecord=new ArrayList<viewModel>();
+		paymentModel paymentModel=new paymentModel();
+	    ArrayList<paymentModel> paymentRecord=new ArrayList<paymentModel>();
 	    
         String query ="call read_payment()";
         PreparedStatement preparedStatement=createPreparedStatement(query);
@@ -93,8 +94,8 @@ public class paymentDbRepositry extends dbConnections {
     	  double balance=rs.getDouble("amount");
     	  int bankCode=rs.getInt("bank_code");
     	
-    	  viewModel=new viewModel(paymentNo,paymentDate,supplierCode,balance,bankCode);
-    	  paymentRecord.add(viewModel);
+    	  paymentModel=new paymentModel(paymentNo,paymentDate,supplierCode,balance,bankCode);
+    	  paymentRecord.add(paymentModel);
         } 
         
         	}

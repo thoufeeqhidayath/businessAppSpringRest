@@ -1,12 +1,14 @@
 package appDBrepository;
 
 import java.sql.PreparedStatement;
+
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
-
+import models.customerModel;
 import businessapp.business.viewModel;
 @Service
 public class customerDbRepository extends dbConnections {
@@ -64,37 +66,39 @@ public class customerDbRepository extends dbConnections {
 			 }
 		}
 		
-		public ArrayList<viewModel> readFromCustomer() throws SQLException
+		public ArrayList<customerModel> readFromCustomer() throws SQLException
 		{ 
-			viewModel viewModel=new viewModel();
-		    ArrayList<viewModel> customerRecord=new ArrayList<viewModel>();
+			customerModel customerModel=new customerModel();
+		    ArrayList<customerModel> customerRecord=new ArrayList<customerModel>();
 		   
 	        String query ="call read_customer()";
 	        PreparedStatement preparedStatement=createPreparedStatement(query);
 	        ResultSet rs= preparedStatement.executeQuery();
+	          
+	        
+	        
+	        try
+		    {
+		        while(rs.next())
+		     
+		        {
+		    	  int customerCode=rs.getInt("customer_code");
+		    	  String customerName=rs.getString("name");
+		    	  double balance=rs.getDouble("balance");
+		    	  customerModel=new customerModel(customerCode,customerName,balance);
+		    	  customerRecord.add(customerModel);
+		        }
+		
+		     }
+		    
+	   
 	    
-	    try
-	    {
-	        while(rs.next())
-	     
-	        {
-	    	  int customerCode=rs.getInt("customer_code");
-	    	  String customerName=rs.getString("name");
-	    	  double balance=rs.getDouble("balance");
-	    	  viewModel=new viewModel(customerCode,customerName,balance);
-	    	  customerRecord.add(viewModel);
-	        }
-		 
-	    }
-	    
-	     finally
+	    	finally
 	     	{
 	    	 	preparedStatement.close(); 
 	    	 	rs.close();
 	     	}
-	      
-	       
-	      
+	  
 			return customerRecord;
 			
 		}

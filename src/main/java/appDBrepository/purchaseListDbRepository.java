@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 
 import businessapp.business.viewModel;
-
+import models.purchaseListModel;
 
 @Service
 public class purchaseListDbRepository extends dbConnections {
@@ -75,12 +75,12 @@ public class purchaseListDbRepository extends dbConnections {
 		
 	}
 	
-	public ArrayList<viewModel> readFromPurchaseList() throws SQLException
+	public ArrayList<purchaseListModel> readFromPurchaseList() throws SQLException
 	{ 
 		
 
-		viewModel viewModel=new viewModel();
-	    ArrayList<viewModel> purchaseListRecord=new ArrayList<viewModel>();
+		purchaseListModel purchaseListModel=new purchaseListModel();
+	    ArrayList<purchaseListModel> purchaseListRecord=new ArrayList<purchaseListModel>();
 	    
     
         String query ="call read_purchase_list()";
@@ -96,8 +96,8 @@ public class purchaseListDbRepository extends dbConnections {
         		int itemCode=rs.getInt("item_code");
         		double price=rs.getDouble("price");
         		double quantity=rs.getDouble("quantity");
-        		viewModel=new viewModel(purchaseNo,itemCode,price,quantity);
-        		purchaseListRecord.add(viewModel);
+        		purchaseListModel=new purchaseListModel(purchaseNo,itemCode,price,quantity);
+        		purchaseListRecord.add(purchaseListModel);
             }
             }
     

@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import businessapp.business.viewModel;
 import services.salesInvoiceService;
+import models.salesInvoiceModel;
+
 
 @RestController
 public class salesInvoiceController {
@@ -38,7 +38,7 @@ public class salesInvoiceController {
 	}
 
 	@RequestMapping(value= "/viewSalesInvoices" ,method = RequestMethod.GET)
-	public ArrayList<viewModel> viewSalesInvoices() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<salesInvoiceModel> viewSalesInvoices() throws ClassNotFoundException, SQLException, IOException
 	{
 		return salesInvoiceService.viewSalesInvoices();
 	}

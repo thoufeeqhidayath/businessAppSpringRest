@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import models.stockModel;
 
 import org.springframework.stereotype.Service;
 
@@ -13,12 +14,14 @@ import businessapp.business.viewModel;
 @Service
 public class stockDbRepository extends dbConnections {
 	
+	
 	public void insertIntoStock(int productCode,int itemCode,double buyingPrice,double sellingPrice,double quantity) throws SQLException
 	{
 			stmt=createStatement();
 			String sql = "call insert_stock("+productCode+","+itemCode+","+buyingPrice+","+sellingPrice+",'"+quantity+"'"+")";
 			stmt.execute(sql);
 	}
+
 	
 	public void deleteFromStock(int productNo) throws SQLException
 	{   
@@ -62,6 +65,7 @@ public class stockDbRepository extends dbConnections {
         preparedStatement.executeUpdate(); 
 	}
 	
+	
 	public void updateStockDec(double newQuantity,int itemCode) throws SQLException
 	{
 		String query = "call update_stock_dec(?,?)";
@@ -73,14 +77,15 @@ public class stockDbRepository extends dbConnections {
 	}
 	
 	
-	public ArrayList<viewModel> readFromStock() throws SQLException
+	public ArrayList<stockModel> readFromStock() throws SQLException
 	{ 
 		
 
-		viewModel viewModel=new viewModel();
-	    ArrayList<viewModel> stockRecord=new ArrayList<viewModel>();
+		
+		stockModel stockModel=new stockModel();
+	    ArrayList<stockModel> stockRecord=new ArrayList<stockModel>();
 	   
-	    String query ="call read_stock()";
+	    String query ="call read_stock_details()";
         PreparedStatement preparedStatement=createPreparedStatement(query);
         ResultSet rs= preparedStatement.executeQuery();
 	    
@@ -92,9 +97,10 @@ public class stockDbRepository extends dbConnections {
     	  double buyingPrice=rs.getDouble("buying_price");
     	  double sellingPrice=rs.getDouble("selling_price");
     	  double quantity=rs.getDouble("quantity");
+    	  String productName=rs.getString("product_name");
     	
-    	  viewModel=new viewModel(productCode,itemCode,buyingPrice,sellingPrice,quantity);
-    	  stockRecord.add(viewModel);
+    	  stockModel=new stockModel(productCode,itemCode,buyingPrice,sellingPrice,quantity,productName);
+    	  stockRecord.add(stockModel);
         }
       
         rs.close();

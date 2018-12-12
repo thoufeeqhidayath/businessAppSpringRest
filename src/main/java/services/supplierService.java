@@ -11,7 +11,7 @@ import appDBrepository.supplierDbRepository;
 import businessapp.business.viewModel;
 import appDBrepository.dbCommonServices;
 
-
+import models.supplierModel;
 @Service
 public class supplierService {
 	@Autowired
@@ -59,7 +59,7 @@ public class supplierService {
 		
 	}
 	
-	public ArrayList<viewModel> viewSuppliers() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<supplierModel> viewSuppliers() throws ClassNotFoundException, SQLException, IOException
 	{
 		return supplierDbRepository.readFromSupplier();
 	}

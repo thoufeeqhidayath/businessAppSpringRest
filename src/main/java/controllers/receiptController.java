@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import businessapp.business.viewModel;
 import services.receiptService;
-
+import models.receiptModel;
 @RestController
 public class receiptController {
 
@@ -38,7 +38,7 @@ public class receiptController {
 	}
 	
 	@RequestMapping(value= "/viewReceipt" ,method = RequestMethod.GET)
-	public ArrayList<viewModel> viewReceipt() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<receiptModel> viewReceipt() throws ClassNotFoundException, SQLException, IOException
 	{
 		return receiptService.viewReceipt();
 	}

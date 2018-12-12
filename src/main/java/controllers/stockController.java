@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import businessapp.business.viewModel;
 import services.stockService;
-
+import models.stockModel;
 
 
 @RestController
@@ -44,7 +42,7 @@ public class stockController {
 	
 	
 	@RequestMapping(value= "/viewStock" ,method = RequestMethod.GET)
-	public  ArrayList<viewModel> viewStock() throws ClassNotFoundException, SQLException, IOException
+	public  ArrayList<stockModel> viewStock() throws ClassNotFoundException, SQLException, IOException
 	{
 		return stockService.viewStock();
 	}

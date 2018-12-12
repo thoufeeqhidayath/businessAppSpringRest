@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import appDBrepository.productDbRepository;
 import businessapp.business.viewModel;
 import appDBrepository.dbCommonServices;
+import models.productModel;
+
 
 @Service
 public class productService {
@@ -64,7 +66,7 @@ public class productService {
 	
 	
 	
-	public ArrayList<viewModel> viewProducts() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<productModel> viewProducts() throws ClassNotFoundException, SQLException, IOException
 	{
 		
 		return productDbRepository.readFromProduct();	

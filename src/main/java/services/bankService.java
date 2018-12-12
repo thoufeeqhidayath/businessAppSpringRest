@@ -11,7 +11,7 @@ import appDBrepository.bankDbRepository;
 
 import appDBrepository.dbCommonServices;
 import businessapp.business.viewModel;
-
+import models.bankModel;
 @Service
 public class bankService {
 	
@@ -24,13 +24,14 @@ public class bankService {
 	
 	public String addBank(String bankName) throws SQLException
 	{	
-		    String returnValue="ADDED";
-			bankDbRepository.insertIntoBank(bankName);	
-			return returnValue;
-		
+		  String returnValue="Added";
+		  bankDbRepository.insertIntoBank(bankName);	
+		  return returnValue;
 	}
-		
+	
+	
 	public String deleteBank(int bankCode) throws SQLException
+	
 	{
 		String returnValue="deleted";
 		if(!(dbCommonServices.checkValueExists("bank_table","bank_code",bankCode)).equals("exist"))
@@ -51,6 +52,7 @@ public class bankService {
 	public String updateBank(int bankCode,String bankName) throws SQLException
 	{
 		String returnValue="Updated";
+		
 		if(!(dbCommonServices.checkValueExists("bank_table","bank_code",bankCode)).equals("exist"))
 	
 		{
@@ -61,10 +63,11 @@ public class bankService {
 		{
 			bankDbRepository.updateBank(bankCode, bankName);
 		}
+		
 		return returnValue;	
 	}
 	
-	public ArrayList<viewModel> viewBank() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<bankModel> viewBank() throws ClassNotFoundException, SQLException, IOException
 	{
 		return bankDbRepository.readFromBank();
 	}

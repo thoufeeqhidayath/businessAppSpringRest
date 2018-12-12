@@ -3,7 +3,7 @@ package services;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import models.paymentModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -84,7 +84,7 @@ public class paymentService {
 		return returnValue;
 	}
 	
-	public ArrayList<viewModel> viewPayment() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<paymentModel> viewPayment() throws ClassNotFoundException, SQLException, IOException
 	{
 		return paymentDbRepositry.readFromPayment();
 	}

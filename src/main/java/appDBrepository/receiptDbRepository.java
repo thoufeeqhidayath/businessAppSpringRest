@@ -4,10 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import models.receiptModel;
 import org.springframework.stereotype.Service;
-
-import businessapp.business.viewModel;
 
 
 @Service
@@ -73,12 +71,12 @@ public class receiptDbRepository extends dbConnections {
 		
 	}
 	
-	public ArrayList<viewModel> readFromReceipt() throws SQLException
+	public ArrayList<receiptModel> readFromReceipt() throws SQLException
 	{ 
 		
 
-		viewModel viewModel=new viewModel();
-	    ArrayList<viewModel> receiptRecord=new ArrayList<viewModel>();
+		receiptModel receiptModel=new receiptModel();
+	    ArrayList<receiptModel> receiptRecord=new ArrayList<receiptModel>();
 	    
         String query ="call read_receipt()";
         PreparedStatement preparedStatement=createPreparedStatement(query);
@@ -95,8 +93,8 @@ public class receiptDbRepository extends dbConnections {
         	  double balance=rs.getDouble("amount");
         	  int bankCode=rs.getInt("bank_code");
         	 
-        	  viewModel=new viewModel(receiptCode,receiptDate,customerCode,balance,bankCode);
-        	  receiptRecord.add(viewModel);
+        	  receiptModel=new receiptModel(receiptCode,receiptDate,customerCode,balance,bankCode);
+        	  receiptRecord.add(receiptModel);
             }
         }
         finally

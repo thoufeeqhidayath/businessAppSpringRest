@@ -7,9 +7,11 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
 
-import businessapp.business.viewModel;
 
+import models.productModel;
 @Service
+
+
 public class productDbRepository extends dbConnections {
 	
 	public void insertIntoProduct(String productName) throws SQLException
@@ -72,10 +74,10 @@ public class productDbRepository extends dbConnections {
 	}
 	
 	
-	public ArrayList<viewModel> readFromProduct() throws SQLException
+	public ArrayList<productModel> readFromProduct() throws SQLException
 	{ 
-		viewModel viewModel=new viewModel();
-	    ArrayList<viewModel> bunchOfProducts=new ArrayList<viewModel>();
+		productModel productModel=new productModel();
+	    ArrayList<productModel> bunchOfProducts=new ArrayList<productModel>();
 	    
         String query ="call read_product()";
         PreparedStatement preparedStatement=createPreparedStatement(query);
@@ -88,8 +90,8 @@ public class productDbRepository extends dbConnections {
         {
     	  int productCode=rs.getInt("product_code");
     	  String productName=rs.getString("product_name");
-    	  viewModel=new viewModel(productCode,productName);
-    	  bunchOfProducts.add(viewModel);
+    	  productModel=new productModel(productCode,productName);
+    	  bunchOfProducts.add(productModel);
         }
         }
        

@@ -11,7 +11,7 @@ import appDBrepository.dbCommonServices;
 import appDBrepository.purchaseListDbRepository;
 import appDBrepository.stockDbRepository;
 import businessapp.business.viewModel;
-
+import models.purchaseListModel;
 @Service
 public class purchaseListService {
 	
@@ -80,7 +80,7 @@ public class purchaseListService {
 		
 	}
 	
-	public  ArrayList<viewModel> viewPurchaseList() throws ClassNotFoundException, SQLException, IOException
+	public  ArrayList<purchaseListModel> viewPurchaseList() throws ClassNotFoundException, SQLException, IOException
 	{
 		return purchaseListDbRepository.readFromPurchaseList();
 	}

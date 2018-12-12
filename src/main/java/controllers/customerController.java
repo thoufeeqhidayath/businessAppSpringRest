@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import services.customerService;
 
-import businessapp.business.viewModel;
-
+import models.customerModel;
 
 @RestController
 public class customerController {
 
 	@Autowired
 	private customerService customerService;
+
 	
 	@RequestMapping(value="/addCustomer",method=RequestMethod.GET)
 	public String addCustomer(@RequestParam(value="customerName",defaultValue="nothing")String customerName) throws SQLException
@@ -27,11 +27,13 @@ public class customerController {
 		return customerService.addCustomer(customerName);	
 	}
 	
+	
 	@RequestMapping(value="/deleteCustomer",method=RequestMethod.GET)
 	public String deleteCustomer(@RequestParam(value="customerCode",defaultValue="000")int customerCode) throws SQLException
 	{
 		return customerService.deleteCustomer(customerCode);	
 	}
+	
 	
 	@RequestMapping(value="/updateCustomer",method=RequestMethod.GET)
 	public String updateCustomer(@RequestParam(value="customerCode",defaultValue="000")int customerCode,@RequestParam(value="customerName",defaultValue="nothing")String customerName) throws SQLException
@@ -39,8 +41,9 @@ public class customerController {
 		return customerService.updateCustomer(customerCode, customerName);
 	}
 	
+	
 	@RequestMapping(value= "/viewCustomers" ,method = RequestMethod.GET)
-	public ArrayList<viewModel> viewCustomers() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<customerModel> viewCustomers() throws ClassNotFoundException, SQLException, IOException
 	{	
 		return customerService.viewCustomers();
 	}

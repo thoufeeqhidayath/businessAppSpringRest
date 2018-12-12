@@ -3,15 +3,13 @@ package controllers;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import businessapp.business.viewModel;
 import services.paymentService;
+import models.paymentModel;
 
 @RestController
 public class paymentController {
@@ -46,7 +44,7 @@ public class paymentController {
 	
 	
 	@RequestMapping(value= "/viewpayments" ,method = RequestMethod.GET)
-	public  ArrayList<viewModel> viewPayment() throws ClassNotFoundException, SQLException, IOException
+	public  ArrayList<paymentModel> viewPayment() throws ClassNotFoundException, SQLException, IOException
 	{
 		return paymentService.viewPayment();
 	}

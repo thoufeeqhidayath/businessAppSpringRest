@@ -9,8 +9,9 @@ import org.springframework.stereotype.Service;
 
 import appDBrepository.dbCommonServices;
 import appDBrepository.salesInvoiceDbRepository;
-import businessapp.business.viewModel;
 
+
+import models.salesInvoiceModel;
 
 @Service
 public class salesInvoiceService {
@@ -25,13 +26,10 @@ public class salesInvoiceService {
 	private dbCommonServices dbCommonServices;
 	
 	
- public String addSalesInvoice(int customerCode,int bankCode) throws SQLException
-	
+	public String addSalesInvoice(int customerCode,int bankCode) throws SQLException
 	{
 		String returnValue="sales invoice added";
-		
 		purchaseInvoiceDbRepository.insertIntoSalesInvoice(customerCode, bankCode);
-		
 		return returnValue;
 	}
 	
@@ -55,6 +53,8 @@ public class salesInvoiceService {
 		return returnValue;
 	}
 	
+	
+	
 	public String updatesalesInvoice(int salesNo,int customerCode,int bankCode) throws SQLException
 	
 	{
@@ -73,7 +73,8 @@ public class salesInvoiceService {
 		return returnValue;
 	}
 
-	public ArrayList<viewModel> viewSalesInvoices() throws ClassNotFoundException, SQLException, IOException
+	
+	public ArrayList<salesInvoiceModel> viewSalesInvoices() throws ClassNotFoundException, SQLException, IOException
 	{
 		return purchaseInvoiceDbRepository.readFromSalesInvoice();
 	}

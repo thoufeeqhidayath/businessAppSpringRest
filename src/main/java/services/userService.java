@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import appDBrepository.userDbRepository;
 import businessapp.business.viewModel;
 import appDBrepository.dbCommonServices;
-
+import models.userModel;
 @Service
 public class userService {
 	
@@ -78,7 +78,7 @@ public class userService {
 	
 	
 	
-	public ArrayList<viewModel> viewUser() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<userModel> viewUser() throws ClassNotFoundException, SQLException, IOException
 	{
 		
 		return userDbRepository.readFromUser();	

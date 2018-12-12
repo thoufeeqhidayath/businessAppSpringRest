@@ -11,7 +11,7 @@ import appDBrepository.stockDbRepository;
 import appDBrepository.salesListDbRepository;
 import appDBrepository.dbCommonServices;
 import businessapp.business.viewModel;
-
+import models.salesListModel;
 
 @Service
 public class salesListService {
@@ -85,7 +85,7 @@ public class salesListService {
 		return returnValue;
 	}
 
-	public ArrayList<viewModel> viewSalesList() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<salesListModel> viewSalesList() throws ClassNotFoundException, SQLException, IOException
 	{
 		return salesListDbRepository.readFromSalesList();
 	}

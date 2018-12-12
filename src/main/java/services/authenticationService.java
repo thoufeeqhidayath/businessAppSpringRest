@@ -15,18 +15,20 @@ public class authenticationService {
 	private authenticationDb authenticationDb;
 	
 	
-	public String authenticateCustomer(String customerName,String password) throws SQLException
+	public String authenticateUser(String userName,String userPassword) throws SQLException
 	{
 	
 		String returnValue="exist";
 		
-		if(!(authenticationDb.checkUserNameExists(customerName).equals("exist")))
+		if(!(authenticationDb.checkUserNameExists(userName).equals("exist")))
 		{
-		returnValue="User Name Not exists";
+			returnValue="User Name Not exists";
 		}
-		else if(!(authenticationDb.checkPasswordExists(password).equals("exist")))
+		else if(!(authenticationDb.checkPasswordExists(userPassword).equals("exist")))
 		{
-		 returnValue="password Not exist";
+		
+			returnValue="password Not exist";
+		
 		}
 		
 		return returnValue;

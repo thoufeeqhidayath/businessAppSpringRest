@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import appDBrepository.dbCommonServices;
 import appDBrepository.purchaseInvoiceDbRepository;
 import businessapp.business.viewModel;
-
+import models.purchaseInvoiceModel;
 @Service
 public class purchaseInvoiceService {
 	
@@ -63,7 +63,7 @@ public class purchaseInvoiceService {
 		return returnValue;
 	}
 	
-	public ArrayList<viewModel> viewPurchaseInvoices() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<purchaseInvoiceModel> viewPurchaseInvoices() throws ClassNotFoundException, SQLException, IOException
 	{
 		return purchaseInvoiceDbRepository.readFromPurchaseInvoice();
 	}

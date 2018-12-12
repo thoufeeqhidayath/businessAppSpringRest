@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import businessapp.business.viewModel;
 
-
+import models.purchaseInvoiceModel;
 @Service
 public class purchaseInvoiceDbRepository extends dbConnections {
 	
@@ -30,6 +30,8 @@ public class purchaseInvoiceDbRepository extends dbConnections {
 		}
 	}
 	
+	
+	
 	public void deleteFromPurchaseInvoice(int purchaseNo) throws SQLException
 	{    
          String query = "call soft_delete_purchase_invoice(?)";
@@ -46,6 +48,8 @@ public class purchaseInvoiceDbRepository extends dbConnections {
 	     }
      
     }
+	
+	
 	
 	public void updatePurchaseInvoice(int  purchaseNo,int supplierCode,int bankCode) throws SQLException
 	{
@@ -65,10 +69,15 @@ public class purchaseInvoiceDbRepository extends dbConnections {
 		 }
 	}
 	
-	public ArrayList<viewModel> readFromPurchaseInvoice() throws SQLException
+	
+	
+	
+	
+	
+	public ArrayList<purchaseInvoiceModel> readFromPurchaseInvoice() throws SQLException
 	{ 
-		viewModel viewModel=new viewModel();
-	    ArrayList<viewModel> purchaseInvoiceRecord=new ArrayList<viewModel>();
+		purchaseInvoiceModel purchaseInvoiceModel=new purchaseInvoiceModel();
+	    ArrayList<purchaseInvoiceModel> purchaseInvoiceRecord=new ArrayList<purchaseInvoiceModel>();
 	   
 	    String query ="call read_purchase_invoice()";
         PreparedStatement preparedStatement=createPreparedStatement(query);
@@ -86,8 +95,8 @@ public class purchaseInvoiceDbRepository extends dbConnections {
     	  int bankCode=rs.getInt("bank_code");
     	  double balance=rs.getDouble("total");
     	  
-    	  viewModel=new viewModel(purchaseNo,purchaseDate,supplierCode,balance,bankCode);
-    	  purchaseInvoiceRecord.add(viewModel);
+    	  purchaseInvoiceModel=new purchaseInvoiceModel(purchaseNo,purchaseDate,supplierCode,balance,bankCode);
+    	  purchaseInvoiceRecord.add(purchaseInvoiceModel);
         }
         }
         

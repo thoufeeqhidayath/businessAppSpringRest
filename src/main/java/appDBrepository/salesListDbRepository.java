@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Service;
 
 import businessapp.business.viewModel;
-
+import models.salesListModel;
 
 @Service
 public class salesListDbRepository extends dbConnections{
@@ -81,11 +81,11 @@ public class salesListDbRepository extends dbConnections{
 		 }
 	}
 	
-	public ArrayList<viewModel> readFromSalesList() throws SQLException
+	public ArrayList<salesListModel> readFromSalesList() throws SQLException
 	{ 
 		
-		viewModel viewModel=new viewModel();
-	    ArrayList<viewModel> salesListRecord=new ArrayList<viewModel>();
+		salesListModel salesListModel=new salesListModel();
+	    ArrayList<salesListModel> salesListRecord=new ArrayList<salesListModel>();
 	  
     
         String query ="call read_sales_list()";
@@ -101,8 +101,8 @@ public class salesListDbRepository extends dbConnections{
          	  int itemCode=rs.getInt("item_code");
          	  double price=rs.getDouble("price");
          	  double quantity=rs.getDouble("quantity");
-         	  viewModel=new viewModel(salesNo,itemCode,price,quantity);
-         	 salesListRecord.add(viewModel);
+         	 salesListModel=new salesListModel(salesNo,itemCode,price,quantity);
+         	 salesListRecord.add(salesListModel);
              }
         }
         finally

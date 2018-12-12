@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import appDBrepository.dbCommonServices;
 import appDBrepository.receiptDbRepository;
 import businessapp.business.viewModel;
-
+import models.receiptModel;
 @Service
 public class receiptService {
 	
@@ -83,7 +83,7 @@ public class receiptService {
 		return returnValue;
 	}
 	
-	public ArrayList<viewModel> viewReceipt() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<receiptModel> viewReceipt() throws ClassNotFoundException, SQLException, IOException
 	{
 		return  receiptDbRepository.readFromReceipt();
 	}

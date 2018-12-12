@@ -3,14 +3,13 @@ package controllers;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import services.purchaseListService;
-import businessapp.business.viewModel;
+import models.purchaseListModel;
 
 @RestController
 public class purchaseListController {
@@ -46,7 +45,7 @@ public class purchaseListController {
 
 	
 	@RequestMapping(value= "/viewPurchaseList" ,method = RequestMethod.GET)
-	public  ArrayList<viewModel> viewPurchaseList() throws ClassNotFoundException, SQLException, IOException
+	public  ArrayList<purchaseListModel> viewPurchaseList() throws ClassNotFoundException, SQLException, IOException
 	{
 		return purchaseListService.viewPurchaseList();
 	}

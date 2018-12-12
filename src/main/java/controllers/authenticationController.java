@@ -17,9 +17,9 @@ public class authenticationController {
 	private authenticationService authenticationService;
 	
 	@RequestMapping(value="/login",method=RequestMethod.GET)
-	public String Login(@RequestParam(value="customerName",defaultValue="nothing")String customerName,@RequestParam(value="customerPassword",defaultValue="nothing")String customerPassword) throws SQLException
+	public String Login(@RequestParam(value="userName",defaultValue="nothing")String customerName,@RequestParam(value="userPassword",defaultValue="nothing")String customerPassword) throws SQLException
 	{
-		return authenticationService.authenticateCustomer(customerName,customerPassword);	
+		return authenticationService.authenticateUser(customerName,customerPassword);	
 	}
 	
 	

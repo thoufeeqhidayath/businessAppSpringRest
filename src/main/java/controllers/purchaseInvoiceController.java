@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import businessapp.business.viewModel;
 import services.purchaseInvoiceService;
-
+import models.purchaseInvoiceModel;
 
 public class purchaseInvoiceController {
 
@@ -37,7 +37,7 @@ public class purchaseInvoiceController {
 	}
 	
 	@RequestMapping(value= "/viewPurchaseInvoices" ,method = RequestMethod.GET)
-	public ArrayList<viewModel> viewPurchaseInvoices() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<purchaseInvoiceModel> viewPurchaseInvoices() throws ClassNotFoundException, SQLException, IOException
 	{
 		return purchaseInvoiceService.viewPurchaseInvoices();
 	}

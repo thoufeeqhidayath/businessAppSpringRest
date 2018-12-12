@@ -1,17 +1,17 @@
-/*package controllers;
+package controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import businessapp.business.viewModel;
 import services.userService;
+import models.userModel;
+
+
 
 @RestController
 public class userController {
@@ -42,9 +42,8 @@ public class userController {
 	
 	
 	@RequestMapping(value= "/viewUser" ,method = RequestMethod.GET)
-	public ArrayList<viewModel> viewProducts() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<userModel> viewProducts() throws ClassNotFoundException, SQLException, IOException
 	{ 	
 		return userService.viewUser();
 	}
 }
-*/
