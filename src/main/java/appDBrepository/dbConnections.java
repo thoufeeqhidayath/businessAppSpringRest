@@ -13,16 +13,16 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class dbConnections {
-	
-	@Autowired
-	private databaseProperties databaseProperties;
-	
+
 	 String USER ;
 	 String PASS ;
 	 String serverName;
 	 String databaseName;
   
-   
+		
+	@Autowired
+	private databaseProperties databaseProperties;
+		
     @Autowired
     protected static Statement stmt=null;
     
@@ -32,7 +32,10 @@ public class dbConnections {
     @Autowired
     protected static  Connection conn=null;
     
-    
+    dbConnections()
+    {
+    	
+    }
     public void getUserCredentials() throws IOException
 	{
 		USER = databaseProperties.getEncryptedName();

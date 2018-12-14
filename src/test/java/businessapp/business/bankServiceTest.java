@@ -1,30 +1,38 @@
 package businessapp.business;
 
+import static org.junit.Assert.*;
+
 import java.io.IOException;
+
+
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.stereotype.Service;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import appDBrepository.authenticationDb;
 import appDBrepository.bankDbRepository;
 import appDBrepository.dbCommonServices;
-import junit.framework.Assert;
-import businessapp.business.viewModel;
+
+import models.bankModel;
+
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class bankServiceTest {
 	
-
+     @Autowired
 	private bankDbRepository bankDbRepository;
+  @Autowired
 	private dbCommonServices dbCommonServices;
 	
-	@Before
-	public void initialize()
-	{
-		
-		bankDbRepository=new bankDbRepository();
-		dbCommonServices=new dbCommonServices();
-	}
+
 	
 	
 	@Test
@@ -32,7 +40,7 @@ public class bankServiceTest {
 	{	
 		    String returnValue="ADDED";
 			bankDbRepository.insertIntoBank("bila");	
-			Assert.assertEquals("ADDED",returnValue);	
+			assertEquals("ADDED",returnValue);	
 	}
 	
 	
@@ -51,7 +59,7 @@ public class bankServiceTest {
 			bankDbRepository.deleteFromBank(3);
 		}
 		
-		Assert.assertEquals("bank not exists",returnValue);
+	assertEquals("bank not exists",returnValue);
        
 	}
 	
@@ -70,20 +78,20 @@ public class bankServiceTest {
 		{
 			bankDbRepository.updateBank(6, "world bank");
 		}
-		 Assert.assertEquals("Updated", returnValue);
+		assertEquals("Updated", returnValue);
 	}
 	
     
     @Test
 	public void viewBank() throws ClassNotFoundException, SQLException, IOException
 	{    
-    	 ArrayList<viewModel> value= new ArrayList<viewModel>();
-    	 viewModel viewModel=new viewModel(1,"cash",434);
-    	 value.add(0, viewModel);
-    	 ArrayList<viewModel> bankRecord= new ArrayList<viewModel>();
+    	 ArrayList<bankModel> value= new ArrayList<bankModel>();
+    	 bankModel bankModel=new bankModel(1,"cash",434);
+    	 value.add(0, bankModel);
+    	 ArrayList<bankModel> bankRecord= new ArrayList<bankModel>();
     	 bankRecord=bankDbRepository.readFromBank();
-    	 Assert.assertEquals(value.get(0).balance, bankRecord.get(0).balance);
-    	 Assert.assertEquals(value.get(0).bankCode, bankRecord.get(0).bankCode);
+    	 
+    assertEquals(value.get(0).bankCode, bankRecord.get(0).bankCode);
 	}
 	
 

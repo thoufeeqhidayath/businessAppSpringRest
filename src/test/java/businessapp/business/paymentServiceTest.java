@@ -1,16 +1,24 @@
 package businessapp.business;
 
+import static org.junit.Assert.*;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import appDBrepository.dbCommonServices;
 import appDBrepository.paymentDbRepositry;
 import junit.framework.Assert;
+import models.paymentModel;
 
+@SpringBootTest
+@RunWith(SpringRunner.class)
 public class paymentServiceTest {
 	
     paymentDbRepositry paymentDbRepositry=new paymentDbRepositry();
@@ -36,7 +44,7 @@ public class paymentServiceTest {
 			paymentDbRepositry.insertIntoPayment(4,321,1);
 		}
 		
-		Assert.assertSame("coorect value",returnValue,"payment   added");
+		assertEquals(returnValue,"payment   added");
 
 	}
     
@@ -57,7 +65,7 @@ public class paymentServiceTest {
 		{
 			paymentDbRepositry.deleteFromPayment(paymentNo);
 		}
-		Assert.assertEquals("payment deleted", returnValue);
+		assertEquals("payment deleted", returnValue);
 	}
 	
     
@@ -89,10 +97,10 @@ public class paymentServiceTest {
 		{
 			paymentDbRepositry.updatePayment(paymentNo, supplierCode, amount, bankCode);
 		}
-		Assert.assertEquals("payment updated", returnValue);
+		assertEquals("payment updated", returnValue);
 	}
 	
-	public ArrayList<viewModel> viewPayment() throws ClassNotFoundException, SQLException, IOException
+	public ArrayList<paymentModel> viewPayment() throws ClassNotFoundException, SQLException, IOException
 	{
 		return paymentDbRepositry.readFromPayment();
 	}

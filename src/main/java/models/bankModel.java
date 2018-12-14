@@ -1,9 +1,9 @@
 package models;
 
 public class bankModel {
-int bankCode;
+public int bankCode;
 String bankName;
-double balance;
+public double balance;
 public int getBankCode() {
 	return bankCode;
 }

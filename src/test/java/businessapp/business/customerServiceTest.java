@@ -3,17 +3,19 @@ package businessapp.business;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import org.junit.Assert;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import appDBrepository.customerDbRepository;
 import appDBrepository.dbCommonServices;
-import junit.framework.Assert;
+
 
 public class customerServiceTest {
 	
-	
+	@Autowired
 	 customerDbRepository customerDbRepository=new customerDbRepository();
-	
+	@Autowired
 	 dbCommonServices dbCommonServices=new  dbCommonServices();
 	
 	 
